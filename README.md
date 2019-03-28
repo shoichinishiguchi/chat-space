@@ -1,5 +1,13 @@
 # README
 
+#What
+データベースを作成しモデルのアソシエーションを組む。
+#Why
+データベースの設計をすることで、オブジェクト同士の扱いが楽になる。
+
+
+#Table
+
 ## membersテーブル
 
 |Column|Type|Options|

@@ -4,7 +4,7 @@
 
 #Table
 
-## membersテーブル
+## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -19,12 +19,12 @@
 |id|integer|null: false|
 |name|string|null: false|
 
-## members_groupsテーブル
+## users_groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false|
-|member_id|integer|null: false|
+|user_id|integer|null: false|
 |group_id|integer|null: false|
 
 ## messagesテーブル
@@ -34,7 +34,7 @@
 |id|integer|null: false|
 |text|text||
 |img|string||
-|members_groups_id|integer|null: false|
+|users_groups_id|integer|null: false|
 
 
 
@@ -42,19 +42,19 @@
 
 
 # Association
-## membersテーブル
-- has_many :members_groups
-- has_many :groups, through: :members_groups
+## usersテーブル
+- has_many :users_groups
+- has_many :groups, through: :users_groups
   has_many :messages
 
 ## groupsテーブル
-- has_many :members_groups
-- has_many :members, through: :members_groups
+- has_many :users_groups
+- has_many :users, through: :users_groups
   has_many :messages
 
-## members_groupsテーブル
-- belongs_to :member
+## users_groupsテーブル
+- belongs_to :user
   belongs_to :group
 
 ## messagesテーブル
-- belongs_to :members_groups
+- belongs_to :users_groups

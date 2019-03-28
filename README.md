@@ -37,7 +37,7 @@
 
 
 
-### Association
+# Association
 ## membersテーブル
 - has_many :members_groups
 - has_many :groups, through: :members_groups

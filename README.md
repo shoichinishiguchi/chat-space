@@ -8,7 +8,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
+|id|integer|null: false, index: true, unique: true |
 |name|string|null: false|
 |email|string|null: false|
 
@@ -16,7 +16,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
+|id|integer|null: false, index: true, unique: true |
 |name|string|null: false|
 
 ## users_groupsテーブル
@@ -24,14 +24,14 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false|
-|user_id|integer|null: false|
+|user_id|integer|null: false, index: true, unique: true |
 |group_id|integer|null: false|
 
 ## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false|
+|id|integer|null: false, index: true, unique: true |
 |text|text||
 |img|string||
 |users_id|integer|null: false|

@@ -8,51 +8,52 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false, index: true, unique: true |
+|id|integer|null: false |
 |name|string|null: false|
 |email|string|null: false|
+
+# Association
+- has_many :users_groups
+- has_many :groups, through: :users_groups
+- has_many :messages
+
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false, index: true, unique: true |
+|id|integer|null: false |
 |name|string|null: false|
+
+# Association
+- has_many :users_groups
+- has_many :users, through: :users_groups
+- has_many :messages
+
 
 ## users_groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false|
-|user_id|integer|null: false, index: true, unique: true |
-|group_id|integer|null: false|
+|user_id|reference|null: false, index: true, unique: true, foreign_key: true |
+|group_id|reference|null: false, index: true, unique: true, foreign_key: true|
+
+# Association
+- belongs_to :user
+- belongs_to :group
+
 
 ## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false, index: true, unique: true |
+|id|integer|null: false |
 |text|text||
 |img|string||
-|users_id|integer|null: false|
-|groups_id|integer|null: false|
-
+|users_id|reference|null: false, index: true, unique: true, foreign_key: true|
+|groups_id|reference|null: false, index: true, unique: true, foreign_key: true|
 
 # Association
-## usersテーブル
-- has_many :users_groups
-- has_many :groups, through: :users_groups
-- has_many :messages
-
-## groupsテーブル
-- has_many :users_groups
-- has_many :users, through: :users_groups
-- has_many :messages
-
-## users_groupsテーブル
 - belongs_to :user
 - belongs_to :group
-
-## messagesテーブル
-- belongs_to :user
-- belongs_to :member

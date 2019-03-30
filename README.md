@@ -34,27 +34,25 @@
 |id|integer|null: false|
 |text|text||
 |img|string||
-|users_groups_id|integer|null: false|
-
-
-
-
+|users_id|integer|null: false|
+|groups_id|integer|null: false|
 
 
 # Association
 ## usersテーブル
 - has_many :users_groups
 - has_many :groups, through: :users_groups
-  has_many :messages
+- has_many :messages
 
 ## groupsテーブル
 - has_many :users_groups
 - has_many :users, through: :users_groups
-  has_many :messages
+- has_many :messages
 
 ## users_groupsテーブル
 - belongs_to :user
-  belongs_to :group
+- belongs_to :group
 
 ## messagesテーブル
-- belongs_to :users_groups
+- belongs_to :user
+- belongs_to :member

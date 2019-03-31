@@ -3,7 +3,11 @@
   .header-right__group sample
   .header-right__member Members: seo neko
   %button.header-right__edit Edit
-%header.header-left seo
+%header.header-left
+  .header-left__name seo
+  %ul
+    %i.fa.fa-pencil-square-o.icon
+    %i.fa.fa-gear.icon
 .side-contents
   .side-contents__groups
     .side-contents__groups__group sample
@@ -22,4 +26,5 @@
   .main--contents__text Good bye world！
 .bottom--contents
   %input.bottom--contents__message{type: :text, name: :message, value: 'type a message'}
+  %i.fa.fa-photo.photo
   %button.bottom--contents__button Send

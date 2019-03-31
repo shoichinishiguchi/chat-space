@@ -1,0 +1,28 @@
+@mixin height_width($height, $width){
+  height: $height;
+  width: $width;
+}
+
+@mixin position_ab ($top, $right, $bottom, $left) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin size_color($size, $color){
+  font-size: $size;
+  color: $color;
+}
+@mixin size_color_bold($size, $color){
+  font-size: $size;
+  color: $color;
+  font-weight: bold;
+}
+@mixin size_color_bold_line-height($size, $color, $line-height){
+  font-size: $size;
+  color: $color;
+  font-weight: bold;
+  line-height: $line-height;
+}

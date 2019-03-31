@@ -1,0 +1,31 @@
+@import './mixin/mixin';
+@import './config/config';
+
+.main--contents{
+  background-color: #fafafa;
+  @include height_width(calc(100vh - 238px), calc(100% - 340px));
+  position: absolute;
+  right: 0;
+  top: 96px;
+  padding-top: 46px;
+  padding-left: 40px;
+  &__name-date{
+    position: relative;
+    margin-bottom: 10px;
+    height: 16px;
+    &__name{
+      @include size_color(16px, $navy);
+      font-weight: bold;
+      float: left;
+      margin-right: 10px;
+    }
+    &__date{
+      @include size_color(12px, $gray);
+      float: left;
+    }
+  }
+  &__text{
+    margin-bottom: 40px;
+    @include size_color(14px, $navy);
+  }
+}

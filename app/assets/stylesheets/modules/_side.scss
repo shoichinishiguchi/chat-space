@@ -1,0 +1,20 @@
+@import './mixin/mixin';
+@import './config/config';
+
+.side-contents{
+  background-color: #2f3e51;
+  @include height_width(calc(100vh - 96px), 300px);
+  position: absolute;
+  bottom: 0px;
+  &__groups{
+    margin-top: 20px;
+    margin-left: 18px;
+    margin-bottom: 40px;
+    &__group{
+      @include size_color_bold(15px, $white);
+    }
+    &__message{
+      @include size_color_bold(11px, $white);
+    }
+  }
+}

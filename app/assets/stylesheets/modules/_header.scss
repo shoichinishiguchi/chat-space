@@ -1,0 +1,53 @@
+@import './mixin/mixin';
+@import './config/config';
+
+.flash_box{
+  background-color: #38AEF0;
+  height: 20px;
+  z-index: 10;
+  text-align: center;
+  @include size_color(16px, $white);
+  line-height: 18px;
+}
+.header-right {
+  z-index: 1;
+  background-color: white;
+  float: right;
+  @include height_width(95px, calc(100% - 340px));
+  position: absolute;
+  left: 300px;
+  padding-left: 40px;
+  border-bottom: #eeeeee solid 1px;
+  &__group{
+    @include size_color_bold_line-height(20px, #333333,20px);
+    margin-top: 35px;
+    margin-bottom: 15px;
+  }
+
+  &__member{
+    @include size_color(12px, $gray);
+    position: relative;
+  }
+
+  &__edit{
+    @include height_width(40px, auto);
+    @include position_ab(28px, 40px, auto, auto);
+    @include size_color(18px, #38AEF0);
+    border: solid 1px #38AEF0;
+    padding: 0 20px 0 20px;
+    line-height: 40px;
+    float: right;
+  }
+
+
+}
+
+.header-left {
+  z-index: 1;
+  background-color: #253141;
+  float: left;
+  @include height_width(96px, 270px);
+  @include size_color_bold_line-height(16px, $white, 96px);
+  position: absolute;
+  padding-left: 30px;
+}

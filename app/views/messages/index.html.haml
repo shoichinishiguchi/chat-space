@@ -26,5 +26,8 @@
   .main--contents__text Good bye world！
 .bottom--contents
   %input.bottom--contents__message{type: :text, name: :message, value: 'type a message'}
-  %i.fa.fa-photo.photo
+  %label
+    %span.filelabel
+      %i.fa.fa-photo.photo
+        %input.filesend{type: :file, name: :img}
   %button.bottom--contents__button Send

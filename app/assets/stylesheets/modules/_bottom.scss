@@ -11,6 +11,10 @@
   }
   .photo{
     @include position_ab(auto, 165px, 38px, auto);
+    cursor: pointer;
+  }
+  .filesend{
+    display: none;
   }
   &__button{
     @include height_width(54px, 100px);

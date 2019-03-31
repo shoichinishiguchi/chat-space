@@ -1,6 +1,3 @@
-@import './mixin/mixin';
-@import './config/config';
-
 .main--contents{
   background-color: #fafafa;
   @include height_width(calc(100vh - 238px), calc(100% - 340px));

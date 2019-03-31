@@ -1,16 +1,13 @@
-@import './mixin/mixin';
-@import './config/config';
-
 .flash_box{
   background-color: #38AEF0;
-  height: 20px;
+  @include height_width(20px, 100vw);
   z-index: 10;
   text-align: center;
   @include size_color(16px, $white);
   line-height: 18px;
+  position: absolute;
 }
 .header-right {
-  z-index: 1;
   background-color: white;
   float: right;
   @include height_width(95px, calc(100% - 340px));
@@ -43,11 +40,22 @@
 }
 
 .header-left {
-  z-index: 1;
   background-color: #253141;
   float: left;
-  @include height_width(96px, 270px);
-  @include size_color_bold_line-height(16px, $white, 96px);
+  @include height_width(96px, 250px);
   position: absolute;
   padding-left: 30px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__name{
+    @include size_color_bold(16px,$white);
+  }
+  .icon{
+  color: white;
+  z-index: 10;
+  }
+
 }
+

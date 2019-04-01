@@ -1,0 +1,60 @@
+.flash_box{
+  background-color: #38AEF0;
+  @include height_width(20px, 100vw);
+  z-index: 10;
+  text-align: center;
+  @include size_color(16px, $white);
+  line-height: 18px;
+  position: absolute;
+}
+.header-right {
+  background-color: white;
+  float: right;
+  @include height_width(95px, calc(100% - 340px));
+  position: absolute;
+  left: 300px;
+  padding-left: 40px;
+  border-bottom: #eeeeee solid 1px;
+  &__group{
+    @include size_color_bold_line-height(20px, #333333,20px);
+    margin-top: 35px;
+    margin-bottom: 15px;
+  }
+
+  &__member{
+    @include size_color(12px, $gray);
+    position: relative;
+  }
+
+  &__edit{
+    @include height_width(40px, auto);
+    @include position_ab(28px, 40px, auto, auto);
+    @include size_color(18px, #38AEF0);
+    border: solid 1px #38AEF0;
+    padding: 0 20px 0 20px;
+    line-height: 40px;
+    float: right;
+  }
+
+
+}
+
+.header-left {
+  background-color: #253141;
+  float: left;
+  @include height_width(96px, 250px);
+  position: absolute;
+  padding-left: 30px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &__name{
+    @include size_color_bold(16px,$white);
+  }
+  .icon{
+  color: white;
+  z-index: 10;
+  }
+}
+

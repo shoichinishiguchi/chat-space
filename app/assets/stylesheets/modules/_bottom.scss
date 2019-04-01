@@ -1,0 +1,27 @@
+.bottom--contents{
+  background-color: #CCCCCC;
+  @include position_ab(auto, 0, 0, auto);
+  @include height_width(50px,calc(100vw - 300px));
+  padding: 23px 0 23px 0;
+  &__message{
+    @include height_width(50px, calc(100vw - 510px));
+    margin-left: 40px;
+    padding-left: 10px;
+    @include size_color(16px, $navy);
+  }
+  .photo{
+    @include position_ab(auto, 165px, 38px, auto);
+    cursor: pointer;
+  }
+  .filesend{
+    display: none;
+  }
+  &__button{
+    @include height_width(54px, 100px);
+    @include size_color(18px, $white);
+    background-color: #38AEF0;
+    margin-left: 15px;
+    margin-right: 40px;
+    float: right;
+  }
+}

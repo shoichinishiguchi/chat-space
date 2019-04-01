@@ -1,0 +1,15 @@
+%header.header-left
+  %h3.header-left__name
+    = current_user.name
+  %ul
+    = link_to do
+      %li.fa.fa-pencil-square-o.icon
+    = link_to edit_user_path(current_user) do
+      %li.fa.fa-gear.icon
+.side-contents
+  .side-contents__groups
+    .side-contents__groups__group sample
+    .side-contents__groups__message Good bye world
+  .side-contents__groups
+    .side-contents__groups__group sample2
+    .side-contents__groups__message Good bye world2

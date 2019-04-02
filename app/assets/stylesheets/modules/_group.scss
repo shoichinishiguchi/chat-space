@@ -56,6 +56,13 @@
       box-sizing: border-box;
     }
 
+    .chat-group-form__label {
+      display: block;
+      line-height: 50px;
+      font-weight: bold;
+      text-align: right;
+    }
+
     .chat-group-form__field--right {
       float: right;
       width: 70%;

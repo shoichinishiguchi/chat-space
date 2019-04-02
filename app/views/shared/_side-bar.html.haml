@@ -8,8 +8,10 @@
       %li.fa.fa-gear.icon
 .side-contents
   .side-contents__groups
-    .side-contents__groups__group sample
-    .side-contents__groups__message Good bye world
-  .side-contents__groups
-    .side-contents__groups__group sample2
-    .side-contents__groups__message Good bye world2
+    - current_user.groups.each do |group|
+      .group
+        = link_to group_messages_path(group) do
+          .side-contents__groups__group
+            = group.name
+          .side-contents__groups__message
+            メッセージはまだありません。

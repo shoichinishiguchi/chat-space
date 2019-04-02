@@ -4,18 +4,27 @@
   %button.header-right__edit Edit
 = render "shared/side-bar"
 .main--contents
-  .main--contents__name-date
-    .main--contents__name-date__name seo
-    .main--contents__name-date__date 2019/03/31 10:43:51
-  .main--contents__text Hello World！
+  / .main--contents__name-date
+  /   = message.user.name class:'main--contents__name-date__name'
+  /   = message.create_at class:'main--contents__name-date__date'
+  / = message.content class:'main--contents__text'
   .main--contents__name-date
     .main--contents__name-date__name seo
     .main--contents__name-date__date 2019/03/31 10:43:51
   .main--contents__text Good bye world！
 .bottom--contents
-  %input.bottom--contents__message{type: :text, name: :message, value: 'type a message'}
-  %label
-    %span.filelabel
-      %i.fa.fa-photo.photo
-        %input.filesend{type: :file, name: :img}
-  %button.bottom--contents__button Send
+  = form_for [@group, @message] do |f|
+    = f.text_field :content, class: 'bottom--contents__message', placeholder: 'type a message'
+    .filelabel
+      =f.label :image, class: 'filelabel' do
+        = fa_icon 'pic', class: 'fa fa-photo photo'
+        = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'bottom-button'
+
+
+  / %input.bottom--contents__message{type: :text, name: :message, value: 'type a message'}
+  / %labels
+  /   %span.filelabel
+  /     %i.fa.fa-photo.photo
+  /       %input.filesend{type: :file, name: :img}
+  / %button.bottom--contents__button Send

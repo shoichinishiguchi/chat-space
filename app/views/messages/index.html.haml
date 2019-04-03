@@ -1,17 +1,18 @@
 %header.header-right
-  .header-right__group sample
-  .header-right__member Members: seo neko
+  .header-right__group
+    =@group.name
+  .header-right__member
+    - @group.users.each do |user|
+      = user.name
   %button.header-right__edit Edit
 = render "shared/side-bar"
 .main--contents
+  = render @messages
+
   / .main--contents__name-date
-  /   = message.user.name class:'main--contents__name-date__name'
-  /   = message.create_at class:'main--contents__name-date__date'
-  / = message.content class:'main--contents__text'
-  .main--contents__name-date
-    .main--contents__name-date__name seo
-    .main--contents__name-date__date 2019/03/31 10:43:51
-  .main--contents__text Good bye world！
+  /   .main--contents__name-date__name seo
+  /   .main--contents__name-date__date 2019/03/31 10:43:51
+  / .main--contents__text Good bye world！
 .bottom--contents
   = form_for [@group, @message] do |f|
     = f.text_field :content, class: 'bottom--contents__message', placeholder: 'type a message'

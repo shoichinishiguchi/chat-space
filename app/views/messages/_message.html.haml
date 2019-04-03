@@ -1,0 +1,10 @@
+.main--contents__wrap
+  .main--contents__wrap__name-date__name
+    = message.user.name
+  .main--contents__wrap__name-date__date
+    = message.created_at.strftime('%Y/%m/%d %H:%M')
+  - if message.content.present?
+    %p.main--contents__wrap-text
+      = message.content
+  .image
+    = image_tag message.image.url if message.image.url

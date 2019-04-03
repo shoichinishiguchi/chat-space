@@ -6,23 +6,30 @@
   top: 96px;
   padding-top: 46px;
   padding-left: 40px;
-  &__name-date{
-    position: relative;
-    margin-bottom: 10px;
-    height: 16px;
-    &__name{
-      @include size_color(16px, $navy);
-      font-weight: bold;
-      float: left;
-      margin-right: 10px;
-    }
-    &__date{
-      @include size_color(12px, $gray);
-      float: left;
+  &__wrap{
+      posititon: relative;
+    &__name-date{
+      position: relative;
+      margin-bottom: 10px;
+      height: 16px;
+      &__name{
+        @include size_color(16px, $navy);
+        font-weight: bold;
+        float: left;
+        margin-right: 10px;
+      }
+      &__date{
+        @include size_color(12px, $gray);
+        float: left;
+      }
     }
   }
-  &__text{
-    margin-bottom: 40px;
-    @include size_color(14px, $navy);
-  }
+}
+
+.main--contents__wrap-text{
+  clear: both;
+  height: 40px;
+  margin-bottom: 40px;
+  @include size_color(18px, $navy);
+  // @include position-ab(15px, auto, auto, 8px);
 }

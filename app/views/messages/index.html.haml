@@ -14,12 +14,12 @@
   /   .main--contents__name-date__date 2019/03/31 10:43:51
   / .main--contents__text Good bye world！
 .bottom--contents
-  = form_for [@group, @message] do |f|
-    = f.text_field :content, class: 'bottom--contents__message', placeholder: 'type a message'
+  = form_for [@group, @message], html: {class: 'jquery-api__form'} do |f|
+    = f.text_field :content, class: 'bottom--contents__message jquery-api__text', placeholder: 'type a message'
     .filelabel
       =f.label :image, class: 'filelabel' do
         = fa_icon 'pic', class: 'fa fa-photo photo'
-        = f.file_field :image, class: 'hidden'
+        = f.file_field :image, class: 'hidden jquery-api__pic'
       = f.submit 'Send', class: 'bottom-button'
 
 

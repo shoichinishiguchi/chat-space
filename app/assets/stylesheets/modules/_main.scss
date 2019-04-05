@@ -6,8 +6,10 @@
   top: 96px;
   padding-top: 46px;
   padding-left: 40px;
+  overflow: scroll;
   &__wrap{
       posititon: relative;
+      margin-bottom: 30px;
     &__name-date{
       position: relative;
       margin-bottom: 10px;
@@ -29,7 +31,6 @@
 .main--contents__wrap-text{
   clear: both;
   height: 40px;
-  margin-bottom: 40px;
   @include size_color(18px, $navy);
   // @include position-ab(15px, auto, auto, 8px);
 }

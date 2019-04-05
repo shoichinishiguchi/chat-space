@@ -21,7 +21,6 @@ $(function(){
     e.preventDefault();
     let formData = new FormData(this);
     let href = $(this).attr('action');
-    console.log(href)
     $.ajax({
       url: href,
       type: "POST",
@@ -34,6 +33,7 @@ $(function(){
       let html = buildHTML(data);
       $('.main--contents').append(html)
       $('.jquery-api__text').val('')
+      $('.main--contents').animate({ scrollTop: $('.main--contents')[0].scrollHeight}, 1000);
     })
     .fail(function(){
       alert('error');

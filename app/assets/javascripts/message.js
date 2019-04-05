@@ -20,7 +20,7 @@ $(function(){
   $('.jquery-api__form').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
-    let href = window.location.href;
+    let href = $(this).attr('action');
     $.ajax({
       url: href,
       type: "POST",
@@ -33,10 +33,13 @@ $(function(){
       let html = buildHTML(data);
       $('.main--contents').append(html)
       $('.jquery-api__text').val('')
+      $('.main--contents').animate({ scrollTop: $('.main--contents')[0].scrollHeight}, 1000);
     })
     .fail(function(){
       alert('error');
     })
-    $(.bottom-button).prop("disabled", false);
+    .always(() => {
+      $(".bottom-button").removeAttr("disabled");
+    })
   })
 })

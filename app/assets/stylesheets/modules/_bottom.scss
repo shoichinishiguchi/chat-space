@@ -16,12 +16,16 @@
   .filesend{
     display: none;
   }
-  &__button{
+}
+.bottom-button{
     @include height_width(54px, 100px);
     @include size_color(18px, $white);
     background-color: #38AEF0;
     margin-left: 15px;
     margin-right: 40px;
     float: right;
+    @include position_ab(auto,0px,18px,auto);
   }
+.hidden{
+  display: none;
 }

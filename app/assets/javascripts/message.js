@@ -20,7 +20,8 @@ $(function(){
   $('.jquery-api__form').on('submit', function(e){
     e.preventDefault();
     let formData = new FormData(this);
-    let href = window.location.href;
+    let href = $(this).attr('action');
+    console.log(href)
     $.ajax({
       url: href,
       type: "POST",
@@ -37,6 +38,8 @@ $(function(){
     .fail(function(){
       alert('error');
     })
-    $(.bottom-button).prop("disabled", false);
+    .always(() => {
+      $(".bottom-button").removeAttr("disabled");
+    })
   })
 })

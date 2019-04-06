@@ -1,7 +1,7 @@
 $(function() {
 
 let search_list = $("#chat-group-users-add-list");
-let add_list = $
+let add_list = $("#chat-group-users");
   function appendUser(user){
     let html = `<div class="chat-group-user clearfix">
         <p class="chat-group-user__name">${user.name}</p>
@@ -11,18 +11,19 @@ let add_list = $
     search_list.append(html);
   }
 
-  function addMember(class){
-
-  }
-
 
   $(document).on("click", ".chat-group-user__btn--add",function(){
+    let html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+  <input name='group[user_ids][]' type='hidden' value='ユーザーのid'>
+  <p class='chat-group-user__name padding-left'>${$(this).data('user-name')}</p>
+  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+</div>
+    `
     $(this).parent().remove();
-
+    add_list.append(html);
     // $(this).addClass("chat-group-user__btn--remove");
     // $(this).html("削除");
-
-
+    console.log(this);
   });
 
   function appendErrMsgToHTML(){
@@ -51,6 +52,7 @@ let add_list = $
       else{
         appendErrMsgToHTML()
       }
+
     })
     .fail(function(){
       aleart('検索に失敗しました');

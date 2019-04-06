@@ -12,9 +12,12 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.where('name LIKE(?)', "#{params[:keyword]}%").limit(20)
     respond_to do |format|
       format.html
+      {
+        notice: 'メッセージが送信されました'
+        }
       format.json
     end
   end
@@ -22,7 +25,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :keyword)
   end
 
 

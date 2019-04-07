@@ -14,10 +14,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @users = User.where('name LIKE(?)', "#{params[:keyword]}%").where.not(id: current_user.id)
+    respond_to do |format|
+      format.html
+      {
+        notice: 'メッセージが送信されました'
+        }
+      format.json
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :keyword)
   end
 
 

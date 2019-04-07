@@ -15,11 +15,13 @@
   font-size: $size;
   color: $color;
 }
+
 @mixin size_color_bold($size, $color){
   font-size: $size;
   color: $color;
   font-weight: bold;
 }
+
 @mixin size_color_bold_line-height($size, $color, $line-height){
   font-size: $size;
   color: $color;

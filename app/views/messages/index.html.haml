@@ -5,13 +5,13 @@
     - @group.users.each do |user|
       = user.name
   %button.header-right__edit
-    = link_to edit_group_path(@group.id)
+    = link_to edit_group_path(@group.id) do
       Edit
 = render "shared/side-bar"
 .main--contents
   = render @messages
 
- .bottom--contents
+.bottom--contents
   = form_for [@group, @message], html: {class: 'jquery-api__form'} do |f|
     = f.text_field :content, class: 'bottom--contents__message jquery-api__text', placeholder: 'type a message'
     .filelabel

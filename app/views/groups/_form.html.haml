@@ -35,8 +35,8 @@
             %input{name: "group[user_ids][]", type: "hidden", value: user.id}
             %p.chat-group-user__name.padding-left
               = user.name
-            %a.user-search-remove.chat-group-user__btn.remove-forever.js-remove-btn{:data-user-name =>user.name} 削除
-            %a{:data-user-id => user.id}
+            .user-search-remove.chat-group-user__btn.remove-forever.js-remove-btn{data:{user:{name: user.name}}} 削除
+            .next{data:{user:{id: user.id}}}
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right

@@ -21,7 +21,7 @@
       #user-search-result
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
-      %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
+      %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
     .chat-group-form__field--right
       / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください= f.collection_check_boxes :user_ids, User.all, :id, :name
       / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
@@ -29,8 +29,17 @@
 
     #chat-group-users
       #chat-group-user-22.chat-group-user.clearfix
-        %input{:name => "chat_group[user_ids]", :type => "hidden", :value => "#{current_user.id}"}
+        %input{:name => "group[user_ids][]", :type => "hidden", :value => current_user.id}
         %p.chat-group-user__name
+          = current_user.name
+      - if @current_group_users
+        - @current_group_users.each do |user|
+          .chat-group-user.clearfix.js-chat-member
+            %input{:name => "group[user_ids][]", :type =>"hidden", :value=> user.id}
+            %p.chat-group-user__name.padding-left
+              = user.name
+            %a.user-search-remove.chat-group-user__btn.remove-forever.js-remove-btn{:data-user-name =>user.name} 削除
+            %a{:data-user-id => user.id}
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
     .chat-group-form__field--right

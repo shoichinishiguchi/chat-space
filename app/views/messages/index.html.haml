@@ -4,7 +4,9 @@
   .header-right__member
     - @group.users.each do |user|
       = user.name
-  %button.header-right__edit Edit
+  %button.header-right__edit
+    = link_to edit_group_path(@group.id) do
+      Edit
 = render "shared/side-bar"
 .main--contents
   = render @messages
@@ -21,7 +23,6 @@
         = fa_icon 'pic', class: 'fa fa-photo photo'
         = f.file_field :image, class: 'hidden jquery-api__pic'
       = f.submit 'Send', class: 'bottom-button'
-
 
   / %input.bottom--contents__message{type: :text, name: :message, value: 'type a message'}
   / %labels

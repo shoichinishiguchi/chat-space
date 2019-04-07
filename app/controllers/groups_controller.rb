@@ -9,6 +9,11 @@ class GroupsController < ApplicationController
     @group.users << current_user
   end
 
+  def edit
+    @current_group_users = @group.users.where.not(id: current_user.id)
+  end
+
+
   def create
     @group = Group.new(group_params)
     if @group.save

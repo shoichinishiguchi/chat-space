@@ -6,7 +6,7 @@ let add_list = $("#chat-group-users");
     let html = `<div class="chat-group-user clearfix">
         <p class="chat-group-user__name">${user.name}</p>
         <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-name="${user.name}">追加</a>
-        <a data-user-id="${user.id}"></a>
+        <a data-user-id=${user.id}></a>
         </div>
     `
     search_list.append(html);
@@ -18,11 +18,9 @@ let add_list = $("#chat-group-users");
     let html = `<div class='chat-group-user clearfix js-chat-member' >
   <input name='group[user_ids][]' type='hidden' value="${$(this).next().data('user-id')}">
   <p class='chat-group-user__name padding-left'>${$(this).data('user-name')}</p>
-  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-name=${$(this).data('user-name')}>削除</a>
-    <a data-user-id="${$(this).next().data('user-id')}"></a>
-</div>
-    `
-
+  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn' data-user-name="${$(this).data('user-name')}">削除</a>
+    <a data-user-id=${$(this).next().data('user-id')}></a>
+</div>`
   $(this).parent().remove();
   add_list.append(html);
   });//グループ登録画面へ移動
@@ -32,12 +30,16 @@ let add_list = $("#chat-group-users");
     function(){
           let html = `<div class="chat-group-user clearfix">
         <p class="chat-group-user__name">${$(this).data('user-name')}</p>
-        <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-name=${$(this).data('user-name')}>追加</a><a data-user-id="${$(this).data('user-id')}"></a>
-          <a data-user-id="${$(this).next().data('user-id')}"></a>
-        </div>    `
+        <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-name="${$(this).data('user-name')}">追加</a><a data-user-id=${$(this).next().data('user-id')}></a>
+        </div>`
     $(this).parent().remove();
     search_list.append(html);
     });//選択場所に戻す
+
+  $(document).on("click", ".remove-forever",
+    function(){
+    $(this).parent().remove();
+    });//グループから削除
 
 
   function appendErrMsgToHTML(){

@@ -21,36 +21,43 @@ $(function(){
 
   // last_message_id.data('message-id')
 
-last_message_id = $('.main--contents__wrap').last().data('msgid')
+
+
+  // console.log(${message.id});
+
 
 
   let reloadMessages = function(){
 
+    $(document).ready(function(){
+        last_message_id = $('.main--contents__wrap').last().data('msgid')
+    });
+
+    href = window.location.href.replace(/messages/,"api/") + 'messages'
     $.ajax({
-      url: '/groups/:group_id/api/messages',
-      type: "get",
-      dataType: 'json',
-      data: {id: last_message_id}
+      type: 'GET',
+      url: href,
+      data: {id: last_message_id},
+      dataType: 'json'
     })
     .done(function(messages) {
-      console.log('success');
+      messages.forEach(function(message){
+      let html = buildHTML(message);
+      $('.main--contents').append(html)
+      $('.main--contents').animate({ scrollTop: $('.main--contents')[0].scrollHeight}, 1000);
+      });
     })
     .fail(function(){
       console.log('error');
     });
-
   }
 
+$(function() {
 
+  reloadMessages
 
-
-
-
-
-
-
-
-
+  setInterval(reloadMessages, 1000);
+});
 
 
 
@@ -71,9 +78,6 @@ last_message_id = $('.main--contents__wrap').last().data('msgid')
       $('.main--contents').append(html)
       $('.jquery-api__text').val('')
       $('.main--contents').animate({ scrollTop: $('.main--contents')[0].scrollHeight}, 1000);
-      $(document).ready(function(){
-
-  });
     })
     .fail(function(){
       alert('error');

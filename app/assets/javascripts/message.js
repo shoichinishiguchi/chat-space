@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    let html = `<div class="main--contents__wrap">
+    let html = `<div class="main--contents__wrap" data-msgid="${message.id}">
                   <div class="main--contents__wrap__name-date__name">
                     ${message.user_name}
                   </div>
@@ -16,6 +16,43 @@ $(function(){
     }
     return html;
   }
+
+
+
+  // last_message_id.data('message-id')
+
+last_message_id = $('.main--contents__wrap').last().data('msgid')
+
+
+  let reloadMessages = function(){
+
+    $.ajax({
+      url: '/groups/:group_id/api/messages',
+      type: "get",
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      console.log('success');
+    })
+    .fail(function(){
+      console.log('error');
+    });
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   $('.jquery-api__form').on('submit', function(e){
     e.preventDefault();
@@ -34,6 +71,9 @@ $(function(){
       $('.main--contents').append(html)
       $('.jquery-api__text').val('')
       $('.main--contents').animate({ scrollTop: $('.main--contents')[0].scrollHeight}, 1000);
+      $(document).ready(function(){
+
+  });
     })
     .fail(function(){
       alert('error');

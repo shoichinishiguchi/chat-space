@@ -20,9 +20,9 @@ $(function(){
 
   let reloadMessages = function(){
 
-    $(document).ready(function(){
-        last_message_id = $('.main--contents__wrap').last().data('msgid')
-    });
+
+    last_message_id = $('.main--contents__wrap').last().data('msgid')
+
 
     href = window.location.href.replace(/messages/,"api/") + 'messages'
     $.ajax({

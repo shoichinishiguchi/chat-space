@@ -18,15 +18,6 @@ $(function(){
   }
 
 
-
-  // last_message_id.data('message-id')
-
-
-
-  // console.log(${message.id});
-
-
-
   let reloadMessages = function(){
 
     $(document).ready(function(){
@@ -48,7 +39,6 @@ $(function(){
       });
     })
     .fail(function(){
-      console.log('error');
     });
   }
 

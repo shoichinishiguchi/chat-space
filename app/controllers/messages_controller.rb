@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = @group.messages.new(message_params)
+    @group_id = params[:group_id]
     if @message.save
       respond_to do |format|
         format.html {

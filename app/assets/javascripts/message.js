@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    let html = `<div class="main--contents__wrap">
+    let html = `<div class="main--contents__wrap" data-msgid="${message.id}">
                   <div class="main--contents__wrap__name-date__name">
                     ${message.user_name}
                   </div>
@@ -16,6 +16,37 @@ $(function(){
     }
     return html;
   }
+
+
+  let reloadMessages = function(){
+
+
+    last_message_id = $('.main--contents__wrap').last().data('msgid')
+
+
+    href = window.location.href.replace(/messages/,"api/") + 'messages'
+    $.ajax({
+      type: 'GET',
+      url: href,
+      data: {id: last_message_id},
+      dataType: 'json'
+    })
+    .done(function(messages) {
+      messages.forEach(function(message){
+      let html = buildHTML(message);
+      $('.main--contents').append(html)
+      $('.main--contents').animate({ scrollTop: $('.main--contents')[0].scrollHeight}, 1000);
+      });
+    })
+    .fail(function(){
+    });
+  }
+
+
+  reloadMessages
+  setInterval(reloadMessages, 1000);
+
+
 
   $('.jquery-api__form').on('submit', function(e){
     e.preventDefault();

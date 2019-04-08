@@ -42,12 +42,9 @@ $(function(){
     });
   }
 
-$(function() {
 
   reloadMessages
-
   setInterval(reloadMessages, 1000);
-});
 
 
 

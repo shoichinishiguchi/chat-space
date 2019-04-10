@@ -28,7 +28,7 @@ test:
   <<: *default
   database: chat-space_test
   username: root
-  password: <%= ENV['20170419'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
 
 # As with config/secrets.yml, you never want to store sensitive information,

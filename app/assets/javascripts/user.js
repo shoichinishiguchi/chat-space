@@ -1,4 +1,4 @@
-$(function() {
+ $(function() {
 
   let search_list = $("#chat-group-users-add-list");
   let add_list = $("#chat-group-users");
